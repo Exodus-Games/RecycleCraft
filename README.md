@@ -13,7 +13,7 @@ In short, RecycleCraft may be distributed by anyone - this includes modpacks - u
 * You distribute RecycleCraft un-modified and in whole; and
 * We'd much like it if you linked back to our website (or the Github repository).
 
-For more information about what is permitted and what is not permitted by the license, please see [license.md](LICENSE.md).
+For more information about what is permitted and what is not permitted by the license, please see [license.file](LICENSE.file).
 
 
 Credits:
