@@ -15,11 +15,6 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     }
 
     @Override
-    public void getKey() {
-
-    }
-
-    @Override
     public TileEntity createNewTileEntity(World world, int meta) {
         return null;
     }
