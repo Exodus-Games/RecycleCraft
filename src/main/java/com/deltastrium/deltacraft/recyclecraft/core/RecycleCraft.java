@@ -1,5 +1,10 @@
 package com.deltastrium.deltacraft.recyclecraft.core;
 
+import com.deltastrium.deltacraft.recyclecraft.config.ConfigData;
+import com.deltastrium.deltacraft.recyclecraft.config.ConfigHandler;
+import com.deltastrium.deltacraft.recyclecraft.data.BlockData;
+import com.deltastrium.deltacraft.recyclecraft.data.ItemData;
+import com.deltastrium.deltacraft.recyclecraft.data.PacketData;
 import com.deltastrium.deltacraft.recyclecraft.proxies.IProxy;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import cpw.mods.fml.common.Mod;
@@ -23,26 +28,25 @@ public class RecycleCraft {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-        /*
 		// config
-		ConfigData.init();
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
-		ConfigData.load();
-		*/
 		
 		// proxy
 		proxy.init();
 		proxy.registerRenderers();
 		proxy.registerEvents();
-		
-	//	Recipes.registerRecipes();
+
+        BlockData.init();
+        ItemData.init();
+
+	    //	Recipes.registerRecipes();
 	}
 
     @Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
 
 		proxy.registerTileEntities();
-		//PacketData.init();
+		PacketData.init();
 		//NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
 	
