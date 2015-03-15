@@ -1,5 +1,8 @@
 package com.deltastrium.deltacraft.recyclecraft.proxies;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+
 public class ClientProxy extends CommonProxy {
 
 	@Override
@@ -16,4 +19,9 @@ public class ClientProxy extends CommonProxy {
 	public void registerEvents() {
 
 	}
+
+    @Override
+    public EntityPlayer getPlayer() {
+        return Minecraft.getMinecraft().thePlayer;
+    }
 }
