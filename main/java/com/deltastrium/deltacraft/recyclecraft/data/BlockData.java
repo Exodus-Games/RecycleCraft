@@ -9,10 +9,9 @@ import net.minecraft.block.Block;
 
 public class BlockData {
 
-    public static IRecycleCraftBlock incinerator;
+    public static BIncinerator incinerator;
 
     public static void init() {
-        incinerator = new BIncinerator();
-        GameRegistry.registerBlock((Block) incinerator, "incinerator");
+        GameRegistry.registerBlock(incinerator = new BIncinerator(), incinerator.getUnlocalizedName());
     }
 }

@@ -11,7 +11,7 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     public BIncinerator() {
         super(Material.rock);
         setCreativeTab(RecycleCraft.modTap);
-        setBlockName("inc");
+        setBlockName("rc_incinerator");
     }
 
     @Override
@@ -20,7 +20,7 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+    public TileEntity createNewTileEntity(World world, int meta) {
         return null;
     }
 
