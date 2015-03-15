@@ -24,6 +24,11 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     }
 
     @Override
+    public String getLocalizedName() {
+        return super.getLocalizedName();
+    }
+
+    @Override
     public TileEntity createNewTileEntity(World world, int meta) {
         return null;
     }
