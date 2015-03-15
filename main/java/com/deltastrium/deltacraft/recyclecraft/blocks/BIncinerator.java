@@ -6,7 +6,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
@@ -21,11 +20,6 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     public IIcon getIcon(int side, int meta) {
         // temporary
         return Blocks.furnace.getIcon(0, 0);
-    }
-
-    @Override
-    public String getLocalizedName() {
-        return super.getLocalizedName();
     }
 
     @Override
