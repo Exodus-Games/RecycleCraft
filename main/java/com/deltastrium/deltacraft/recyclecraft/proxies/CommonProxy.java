@@ -8,11 +8,6 @@ public abstract class CommonProxy implements IProxy {
 	public void registerRenderers() {
 
     }
-	
-	@Override
-	public void registerTileEntities() {
-
-    }
 
     @Override
     public EntityPlayer getPlayer() {

@@ -7,7 +7,6 @@ public interface IProxy {
 
 	public void init();
 	public void registerRenderers();
-	public void registerTileEntities();
 	public void registerEvents();
     public EntityPlayer getPlayer();
 
