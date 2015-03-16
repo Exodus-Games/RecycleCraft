@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.tileentity.TileEntity;
 
 public abstract class ContainerBase extends Container {
 
@@ -17,10 +18,5 @@ public abstract class ContainerBase extends Container {
         for (int i = 0; i < 9; i++) {
             addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
         }
-    }
-
-    @Override
-    public boolean canInteractWith(EntityPlayer player) {
-        return false;
     }
 }

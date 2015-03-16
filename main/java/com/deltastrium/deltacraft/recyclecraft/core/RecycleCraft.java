@@ -2,10 +2,7 @@ package com.deltastrium.deltacraft.recyclecraft.core;
 
 import com.deltastrium.deltacraft.recyclecraft.config.ConfigData;
 import com.deltastrium.deltacraft.recyclecraft.config.ConfigHandler;
-import com.deltastrium.deltacraft.recyclecraft.data.BlockData;
-import com.deltastrium.deltacraft.recyclecraft.data.ItemData;
-import com.deltastrium.deltacraft.recyclecraft.data.PacketData;
-import com.deltastrium.deltacraft.recyclecraft.data.TileData;
+import com.deltastrium.deltacraft.recyclecraft.data.*;
 import com.deltastrium.deltacraft.recyclecraft.proxies.IProxy;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import cpw.mods.fml.common.Mod;
@@ -13,6 +10,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 
 @Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION)
@@ -49,7 +47,7 @@ public class RecycleCraft {
 
 		proxy.registerTileEntities();
 		PacketData.init();
-		//NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
 	
 	@Mod.EventHandler
