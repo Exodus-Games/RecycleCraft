@@ -1,6 +1,7 @@
 package com.deltastrium.deltacraft.recyclecraft.blocks;
 
 import com.deltastrium.deltacraft.recyclecraft.core.RecycleCraft;
+import com.deltastrium.deltacraft.recyclecraft.tiles.TileIncinerator;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -24,6 +25,6 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
 
     @Override
     public TileEntity createNewTileEntity(World world, int meta) {
-        return null;
+        return new TileIncinerator();
     }
 }

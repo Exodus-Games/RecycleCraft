@@ -5,6 +5,7 @@ import com.deltastrium.deltacraft.recyclecraft.config.ConfigHandler;
 import com.deltastrium.deltacraft.recyclecraft.data.BlockData;
 import com.deltastrium.deltacraft.recyclecraft.data.ItemData;
 import com.deltastrium.deltacraft.recyclecraft.data.PacketData;
+import com.deltastrium.deltacraft.recyclecraft.data.TileData;
 import com.deltastrium.deltacraft.recyclecraft.proxies.IProxy;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import cpw.mods.fml.common.Mod;
@@ -38,6 +39,7 @@ public class RecycleCraft {
 
         BlockData.init();
         ItemData.init();
+        TileData.init();
 
 	    //	Recipes.registerRecipes();
 	}
