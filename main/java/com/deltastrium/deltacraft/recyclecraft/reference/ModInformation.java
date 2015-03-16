@@ -10,4 +10,5 @@ public class ModInformation {
 
     public static final String CLIENT_PROXY_PATH = "com.deltastrium.deltacraft.recyclecraft.proxies.ClientProxy";
     public static final String SERVER_PROXY_PATH = "com.deltastrium.deltacraft.recyclecraft.proxies.ServerProxy";
+
 }
