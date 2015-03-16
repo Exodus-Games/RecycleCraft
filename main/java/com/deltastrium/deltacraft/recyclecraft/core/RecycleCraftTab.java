@@ -1,5 +1,6 @@
 package com.deltastrium.deltacraft.recyclecraft.core;
 
+import com.deltastrium.deltacraft.recyclecraft.data.BlockData;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -13,7 +14,7 @@ public class RecycleCraftTab extends CreativeTabs {
 
     @Override
     public Item getTabIconItem() {
-        return Item.getItemFromBlock(Blocks.stone);
+        return Item.getItemFromBlock(BlockData.incinerator);
     }
 
 }
