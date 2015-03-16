@@ -35,17 +35,17 @@ public class RecycleCraft {
 		proxy.registerRenderers();
 		proxy.registerEvents();
 
+        // data
         BlockData.init();
         ItemData.init();
         TileData.init();
 
-	    //	Recipes.registerRecipes();
+        // recipes
+	    Recipes.registerRecipes();
 	}
 
     @Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
-
-		proxy.registerTileEntities();
 		PacketData.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
