@@ -14,7 +14,7 @@ public class ConIncinerator extends ContainerBase {
     public ConIncinerator(InventoryPlayer inventoryPlayer, TileIncinerator tile) {
         this.tile = tile;
 
-        addSlotToContainer(new Slot(tile, 0, 6 * 18 + 26, 18));
+        addSlotToContainer(new Slot(tile, 0, 80, 35));
 
         bindPlayerInventory(inventoryPlayer);
     }
