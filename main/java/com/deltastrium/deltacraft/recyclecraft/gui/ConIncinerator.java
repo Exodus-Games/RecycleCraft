@@ -20,6 +20,11 @@ public class ConIncinerator extends ContainerBase {
     }
 
     @Override
+    public int getInventorySize() {
+        return tile.getSizeInventory();
+    }
+
+    @Override
     public boolean canInteractWith(EntityPlayer player) {
         return tile.isUseableByPlayer(player);
     }
