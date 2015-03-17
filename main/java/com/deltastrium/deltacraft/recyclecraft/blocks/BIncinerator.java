@@ -1,6 +1,7 @@
 package com.deltastrium.deltacraft.recyclecraft.blocks;
 
 import com.deltastrium.deltacraft.recyclecraft.core.RecycleCraft;
+import com.deltastrium.deltacraft.recyclecraft.itemblocks.BITexted;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import com.deltastrium.deltacraft.recyclecraft.reference.Textures;
 import com.deltastrium.deltacraft.recyclecraft.tiles.TileIncinerator;
@@ -11,13 +12,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
+
+    // TODO: Someone make this sound good
+    public static final String DESCRIPTION = "Destroys all items that are placed inside.";
 
     private IIcon frontTexture, sideTexture, topTexture, bottomTexture;
 
@@ -49,6 +53,11 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     @Override
     public TileEntity createNewTileEntity(World world, int meta) {
         return new TileIncinerator();
+    }
+
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
     }
 
     @Override
