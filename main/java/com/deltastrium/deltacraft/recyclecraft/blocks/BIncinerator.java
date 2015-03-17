@@ -6,8 +6,10 @@ import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import com.deltastrium.deltacraft.recyclecraft.reference.Textures;
 import com.deltastrium.deltacraft.recyclecraft.tiles.TileIncinerator;
 import com.deltastrium.deltacraft.recyclecraft.util.FacingUtil;
+import com.deltastrium.deltacraft.recyclecraft.util.WorldUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,10 +20,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
 
     // TODO: Someone make this sound good
     public static final String DESCRIPTION = "Destroys all items that are placed inside.";
+    public static final int BURN_TIME = 60;
 
     private IIcon frontTexture, sideTexture, topTexture, bottomTexture;
 
@@ -74,5 +79,19 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     @Override
     public void onBlockPlacedBy(World world, int x, int z, int y, EntityLivingBase player, ItemStack stack) {
         world.setBlockMetadataWithNotify(x, z, y, FacingUtil.getFurnaceMeta(player), 2);
+    }
+
+    @Override
+    public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+
+        if (WorldUtil.isBit4Set(world, x, y, z)) {
+            float xPos = (float) x + 0.25F + (0.5F * rand.nextFloat());
+            float yPos = (float) y + 0.9F + (0.2F * rand.nextFloat());
+            float zPos = (float) z + 0.25F + (0.5F * rand.nextFloat());
+
+            world.spawnParticle("smoke", (double) xPos, (double) yPos, (double) zPos, 0.0D, 0.0D, 0.0D);
+            world.spawnParticle("smoke", (double) xPos, (double) yPos, (double) zPos, 0.0D, 0.0D, 0.0D);
+            world.spawnParticle("flame", (double) xPos, (double) yPos, (double) zPos, 0.0D, 0.0D, 0.0D);
+        }
     }
 }
