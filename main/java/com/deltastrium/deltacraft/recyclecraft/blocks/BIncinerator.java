@@ -1,5 +1,6 @@
 package com.deltastrium.deltacraft.recyclecraft.blocks;
 
+import com.deltastrium.deltacraft.recyclecraft.config.ConfigData;
 import com.deltastrium.deltacraft.recyclecraft.core.RecycleCraft;
 import com.deltastrium.deltacraft.recyclecraft.itemblocks.BITexted;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
@@ -84,7 +85,7 @@ public class BIncinerator extends BlockContainer implements IRecycleCraftBlock {
     @Override
     public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 
-        if (WorldUtil.isBit4Set(world, x, y, z)) {
+        if (ConfigData.machineParticles && WorldUtil.isBit4Set(world, x, y, z)) {
             float xPos = (float) x + 0.25F + (0.5F * rand.nextFloat());
             float yPos = (float) y + 0.9F + (0.2F * rand.nextFloat());
             float zPos = (float) z + 0.25F + (0.5F * rand.nextFloat());

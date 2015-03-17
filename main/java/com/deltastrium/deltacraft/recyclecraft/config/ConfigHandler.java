@@ -14,7 +14,7 @@ public class ConfigHandler {
 			config.load();
 			
 			// Example
-			// ConfigData.useNewTab = config.get(CAREGORY_TWEAKS, "useNewTab", true, "whether this mod should use its own creative tab").getBoolean(true);
+			ConfigData.machineParticles = config.get(CAREGORY_TWEAKS, "machineParticles", ConfigData.machineParticles, "Whether or not machines emit particles.").getBoolean(true);
 
 		}
 		catch(Exception e) {
