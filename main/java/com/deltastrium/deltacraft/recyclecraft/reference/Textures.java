@@ -20,5 +20,6 @@ public class Textures {
 
     // ITEMS //
     public static final String WRENCH = "wrench";
+
 }
 
