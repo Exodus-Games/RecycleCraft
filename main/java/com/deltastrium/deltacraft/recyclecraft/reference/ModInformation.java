@@ -1,6 +1,8 @@
 package com.deltastrium.deltacraft.recyclecraft.reference;
 
 public class ModInformation {
+	
+	// test
 
 	public static final String ID = "RecycleCraft";
 	public static final String NAME = "RecycleCraft";
