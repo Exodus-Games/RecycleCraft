@@ -1,5 +1,6 @@
 package com.deltastrium.deltacraft.recyclecraft.util;
 
+import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -24,5 +25,18 @@ public class WorldUtil {
     /** Checks whether the last bit of metadata is set or not. */
     public static boolean isBit4Set(TileEntity tile) {
         return isBit4Set(tile.getWorldObj(), tile.xCoord, tile.yCoord, tile.zCoord);
+    }
+
+    public static boolean dropBlock(World world, int x, int y, int z) {
+        if (!world.isRemote) {
+            Block block = world.getBlock(x, y, z);
+            if (block != null) {
+                int meta = world.getBlockMetadata(x, y, z);
+                block.dropBlockAsItemWithChance(world, x, y, z, meta, 1F, 1);
+                world.setBlockToAir(x, y, z);
+                return true;
+            }
+        }
+        return false;
     }
 }
