@@ -2,7 +2,7 @@ package com.deltastrium.deltacraft.recyclecraft.reference;
 
 public class ModInformation {
 	
-	// test
+	// test 2
 
 	public static final String ID = "RecycleCraft";
 	public static final String NAME = "RecycleCraft";
