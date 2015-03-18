@@ -16,7 +16,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BCompactor extends BlockContainer implements IRecycleCraftBlock {
+public class BCompactor extends BMultiblockCore implements IRecycleCraftBlock {
 
     // TODO: Someone make this sound good
     public static final String DESCRIPTION = "Makes blocks more compact!";
