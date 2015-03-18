@@ -5,5 +5,6 @@ import net.minecraft.item.ItemBlock;
 public interface IRecycleCraftBlock {
 
     public String getDescription();
+    public boolean canBePickedUpWithWrench();
 
 }
