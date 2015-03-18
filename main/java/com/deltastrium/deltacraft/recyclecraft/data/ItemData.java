@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class ItemData {
 
-    public static Item wrench;
+    public static ItemWrench wrench;
 
     public static void init() {
         GameRegistry.registerItem(wrench = new ItemWrench(), wrench.getUnlocalizedName(), ModInformation.ID);
