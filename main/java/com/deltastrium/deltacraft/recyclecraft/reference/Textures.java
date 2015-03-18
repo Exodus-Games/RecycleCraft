@@ -14,6 +14,6 @@ public class Textures {
     public static final String INCINERATOR_BOTTOM = "incinerator/incinerator_bottom";
 
     // ITEMS //
-
+    public static final String WRENCH = "wrench";
 }
 
