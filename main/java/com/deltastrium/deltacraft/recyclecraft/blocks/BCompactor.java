@@ -33,10 +33,10 @@ public class BCompactor extends BlockContainer implements IRecycleCraftBlock {
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = this.frontTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.INCINERATOR_FRONT);
-        this.sideTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.INCINERATOR_SIDE);
-        this.topTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.INCINERATOR_TOP);
-        this.bottomTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.INCINERATOR_BOTTOM);
+        this.blockIcon = this.frontTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.COMPACTOR_FRONT);
+        this.sideTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.COMPACTOR_SIDE);
+        this.topTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.COMPACTOR_TOP);
+        this.bottomTexture = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.COMPACTOR_BOTTOM);
     }
 
     @Override
