@@ -2,8 +2,6 @@ package com.deltastrium.deltacraft.recyclecraft.reference;
 
 public class ModInformation {
 
-    // TEST COMMIT
-
 	public static final String ID = "RecycleCraft";
 	public static final String NAME = "RecycleCraft";
 	public static final String VERSION = "0.0.0";
