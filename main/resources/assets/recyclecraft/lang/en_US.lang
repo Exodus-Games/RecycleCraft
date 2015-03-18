@@ -1,5 +1,6 @@
 itemGroup.RecycleCraft=Recycle Craft
 
 tile.rc_incinerator.name=Incinerator
+tile.rc_compactor.name=Compactor
 
 item.rc_wrench.name=Recycler's Wrench
