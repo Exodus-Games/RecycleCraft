@@ -31,8 +31,8 @@ public class Multiblock {
         parts.add(new PartInfo(block, x, y, z, metadata));
     }
 
-    public void setCore(Block block, int x, int y, int z, int metadata) {
-        core = new PartInfo(block, x, y, z, metadata);
+    public void setCore(Block block, int metadata) {
+        core = new PartInfo(block, 0, 0, 0, metadata);
     }
 
     public boolean checkPattern(World world, int x, int y, int z) {
