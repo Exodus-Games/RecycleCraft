@@ -26,6 +26,19 @@ public class Vector3 {
         }
     }
 
+    public Vector3 rotate(int axis) {
+        switch (axis) {
+            case 0: return new Vector3(z, y, -x);
+            case 1: return new Vector3(-z, y, x);
+            case 2: return new Vector3(y, -x, z);
+            case 3: return new Vector3(-y, x, z);
+            case 4: return new Vector3(x, z, -y);
+            case 5: return new Vector3(x, -z, y);
+        }
+
+        return null;
+    }
+
     public NBTTagCompound writeToNBT() {
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setInteger("x", x);
@@ -44,5 +57,9 @@ public class Vector3 {
         Vector3 vector = new Vector3();
         vector.readFromNBT(compound);
         return vector;
+    }
+
+    public String toString() {
+        return "Vector(" + x + ", " + y + ", " + z + ")";
     }
 }
