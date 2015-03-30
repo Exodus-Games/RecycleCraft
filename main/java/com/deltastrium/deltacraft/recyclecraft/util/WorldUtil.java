@@ -47,4 +47,13 @@ public class WorldUtil {
         world.setBlockToAir(x, y, z);
         world.isRemote = remote;
     }
+
+    /** tries to get a TileEntity of the specified kind. Returns null if not possible. */
+    public static <T extends TileEntity> T getTile(World world, int x, int y, int z, Class<T> type) {
+        TileEntity tile = world.getTileEntity(x, y, z);
+        if (type.isInstance(tile)) {
+            return type.cast(tile);
+        }
+        else return null;
+    }
 }
