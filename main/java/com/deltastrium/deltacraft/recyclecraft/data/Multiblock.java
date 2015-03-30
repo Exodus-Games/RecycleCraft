@@ -45,6 +45,7 @@ public class Multiblock {
         core = new PartInfo(block, 0, 0, 0, metadata, true, -1);
     }
 
+    /*
     public boolean checkPattern(World world, int x, int y, int z) {
 
         if (!core.isPartThere(world, x, y, z)) return false;
@@ -59,6 +60,31 @@ public class Multiblock {
             if (rotatedMeta != (world.getBlockMetadata(rotatedPos.x + x, rotatedPos.y + y, rotatedPos.z + z) & 7)) return false;
         }
 
+        return true;
+    }*/
+
+    public boolean checkPattern(World world, int x, int y, int z) {
+        System.out.println("checkPattern");
+        if (!core.isPartThere(world, x, y, z)) return false;
+        int facing = world.getBlockMetadata(x, y, z) & 7;
+        System.out.println("Core: OKAY");
+        int counter = 1;
+        for (PartInfo part : parts) {
+            Vector3 rotatedPos = new Vector3(part.x, part.y, part.z).rotateToMeta(core.metadata & 7, facing);
+            if (!part.isPartThere(world, rotatedPos.x + x, rotatedPos.y + y, rotatedPos.z + z)) {
+                System.out.println("Part " + counter + " at " + (rotatedPos.x + x) + "/" + (rotatedPos.y + y) + "/" + (rotatedPos.z + z) + " is missing!");
+                return false;
+            }
+            System.out.println((core.metadata & 7) + ", " + facing + ", " + (part.metadata & 7));
+            int rotatedMeta = part.rotateMeta ? FacingUtil.getSynchedFurnaceFacing(core.metadata & 7, facing, part.metadata & 7) : part.metadata;
+            if (rotatedMeta != (world.getBlockMetadata(rotatedPos.x + x, rotatedPos.y + y, rotatedPos.z + z) & 7)) {
+                System.out.println("Part " + counter + " at " + (rotatedPos.x + x) + "/" + (rotatedPos.y + y) + "/" + (rotatedPos.z + z) + " has the wrong metadata!");
+                System.out.println("currentMeta: " + (world.getBlockMetadata(rotatedPos.x + x, rotatedPos.y + y, rotatedPos.z + z) & 7));
+                System.out.println("requiredMeta: " + rotatedMeta);
+                return false;
+            }
+            System.out.println("Part " + counter++ + ": OKAY");
+        }
         return true;
     }
 
