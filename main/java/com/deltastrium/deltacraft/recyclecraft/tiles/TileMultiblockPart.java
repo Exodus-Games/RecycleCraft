@@ -82,6 +82,7 @@ public class TileMultiblockPart extends TileEntity {
     public void writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
         compound.setInteger("metadata", metadata);
+        compound.setInteger("index", index);
 
         if (block != null) compound.setInteger("blockID", Block.getIdFromBlock(block));
         if (coreCoords != null) compound.setTag("coreCoords", coreCoords.writeToNBT());
@@ -92,6 +93,7 @@ public class TileMultiblockPart extends TileEntity {
         super.readFromNBT(compound);
 
         this.metadata = compound.getInteger("metadata");
+        this.index = compound.getInteger("index");
         if (compound.hasKey("blockID")) this.block = Block.getBlockById(compound.getInteger("blockID"));
         if (compound.hasKey("coreCoords")) this.coreCoords = Vector3.createFromNBT(compound.getCompoundTag("coreCoords"));
     }
