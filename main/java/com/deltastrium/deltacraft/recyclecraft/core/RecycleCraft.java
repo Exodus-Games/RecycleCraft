@@ -39,6 +39,7 @@ public class RecycleCraft {
         BlockData.init();
         ItemData.init();
         TileData.init();
+        MultiblockData.init();
 
         // recipes
 	    Recipes.registerRecipes();
