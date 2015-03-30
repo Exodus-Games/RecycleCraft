@@ -43,13 +43,14 @@ public class Vector3 {
         return null;
     }
 
-    /** Rotates the vector based ont the given rotation example. Returns a new instance. */
+    /** Rotates the vector based ont the given rotation example. Returns a new instance.
+     *  If mirrored this will preserve the y position. */
     public Vector3 rotateToMeta(int oldMeta, int newMeta) {
         Vector3 result = copy();
         int rotation = findRotation(oldMeta, newMeta);
 
         if (rotation == -2) return result;
-        if (rotation == -1) return result.rotate(rotation).rotate(rotation);
+        if (rotation == -1) return new Vector3(-x, y, -z);
         return result.rotate(rotation);
     }
 

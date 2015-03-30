@@ -5,16 +5,18 @@ import net.minecraft.util.MathHelper;
 
 public class FacingUtil {
 
-    private static final int[][] sideToData = {{0,1,2,3,4,5},{1,0,3,2,5,4},{2,3,0,1,4,5},{3,2,1,0,5,4},{4,5,2,3,0,1},{5,4,3,2,1,0}};
+    public static int[][] rotateData = {{0,1,4,5,3,2},{0,1,5,4,2,3},{5,4,2,3,0,1},{4,5,2,3,1,0},{2,3,1,0,4,5},{3,2,0,1,4,5}};
 
     /** returns a new facing for a furnace like block depending on the given rotation example. */
     public static int getSynchedFurnaceFacing(int exampleOld, int exampleNew, int currentFacing) {
 
         int rotation = findRotation(exampleOld, exampleNew);
 
+        System.out.println("Rotation: " + rotation);
+
         if (currentFacing == 0 || currentFacing == 1 || rotation == -2) return currentFacing;
         if (rotation == -1) return currentFacing ^ 1;
-        return sideToData[rotation][currentFacing];
+        return rotateData[rotation][currentFacing];
     }
 
     /** finds the applied rotation depending on the given example.
@@ -29,8 +31,8 @@ public class FacingUtil {
         if (exampleOld == (exampleNew ^ 1)) return -1;
 
         for (int i = 0; i < 6; i++) {
-            if (sideToData[i][exampleOld] == exampleNew) {
-                return i;
+            if (rotateData[exampleOld][i] == exampleNew) {
+                return i ^ 1;
             }
         }
 
