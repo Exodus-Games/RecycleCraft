@@ -2,6 +2,7 @@ package com.deltastrium.deltacraft.recyclecraft.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class WorldUtil {
@@ -49,7 +50,7 @@ public class WorldUtil {
     }
 
     /** tries to get a TileEntity of the specified kind. Returns null if not possible. */
-    public static <T extends TileEntity> T getTile(World world, int x, int y, int z, Class<T> type) {
+    public static <T extends TileEntity> T getTile(IBlockAccess world, int x, int y, int z, Class<T> type) {
         TileEntity tile = world.getTileEntity(x, y, z);
         if (type.isInstance(tile)) {
             return type.cast(tile);
