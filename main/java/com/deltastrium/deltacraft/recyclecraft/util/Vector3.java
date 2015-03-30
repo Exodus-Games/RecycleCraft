@@ -29,6 +29,16 @@ public class Vector3 {
         }
     }
 
+    /** Offsets the vector by the given amount. Returns a new instance */
+    public Vector3 offset(int x, int y, int z) {
+        return new Vector3(this.x + x, this.y + y, this.z + z);
+    }
+
+    /** Offsets the vector by the given vector. Returns a new instance */
+    public Vector3 offset(Vector3 offset) {
+        return new Vector3(this.x + offset.x, this.y + offset.y, this.z + offset.z);
+    }
+
     /** Rotates the vector on the specified axis (0,1,2,3,4,5). Returns a new instance. */
     public Vector3 rotate(int axis) {
         switch (axis) {
