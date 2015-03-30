@@ -52,7 +52,6 @@ public class BCompactor extends BMultiblockCore {
 
     @Override
     public IIcon getPartTexture(int index, int side) {
-        System.out.println("Lets ask the compactor!");
         return bottomTexture;
     }
 

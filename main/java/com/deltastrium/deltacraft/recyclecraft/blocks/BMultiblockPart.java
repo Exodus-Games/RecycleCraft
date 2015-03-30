@@ -33,22 +33,21 @@ public class BMultiblockPart extends BlockContainer implements IRecycleCraftBloc
         this.blockIcon = iconRegister.registerIcon(ModInformation.RESOURCE_LOCATION + ":" + Textures.COMPACTOR_FRONT);
     }
 
-    /*
+
     @Override
     public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-       /* TileMultiblockPart tile = WorldUtil.getTile(world, x, y, z, TileMultiblockPart.class);
+        TileMultiblockPart tile = WorldUtil.getTile(world, x, y, z, TileMultiblockPart.class);
         if (tile != null) {
-            System.out.println("A");
             Vector3 coreCoords = tile.getCoreCoords();
             if (coreCoords != null) {
                 Block core = world.getBlock(coreCoords.x, coreCoords.y, coreCoords.z);
                 if (core != null && core instanceof BMultiblockCore) {
-                    System.out.println("B");
                     return ((BMultiblockCore) core).getPartTextureRaw(world, x, y, z, tile.getIndex(), side);
                 }
             }
+        }
         return super.getIcon(world, x, y, z, side);
-    }*/
+    }
 
     @Override
     public String getDescription() {

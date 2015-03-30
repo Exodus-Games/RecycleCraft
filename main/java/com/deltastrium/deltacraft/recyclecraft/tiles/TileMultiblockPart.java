@@ -91,16 +91,8 @@ public class TileMultiblockPart extends TileEntity {
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
 
-        System.out.println("readFromNBT A");
-
         this.metadata = compound.getInteger("metadata");
         if (compound.hasKey("blockID")) this.block = Block.getBlockById(compound.getInteger("blockID"));
-        if (compound.hasKey("coreCoords")) {
-            System.out.println("found coreCoordsKey");
-            NBTTagCompound nbt = compound.getCompoundTag("coreCoords");
-            if (nbt != null) System.out.println("found compound");
-            this.coreCoords = Vector3.createFromNBT(compound.getCompoundTag("coreCoords"));
-        }
-
+        if (compound.hasKey("coreCoords")) this.coreCoords = Vector3.createFromNBT(compound.getCompoundTag("coreCoords"));
     }
 }

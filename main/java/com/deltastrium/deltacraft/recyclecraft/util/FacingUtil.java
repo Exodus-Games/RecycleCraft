@@ -12,8 +12,6 @@ public class FacingUtil {
 
         int rotation = findRotation(exampleOld, exampleNew);
 
-        System.out.println("Rotation: " + rotation);
-
         if (currentFacing == 0 || currentFacing == 1 || rotation == -2) return currentFacing;
         if (rotation == -1) return currentFacing ^ 1;
         return rotateData[rotation][currentFacing];
