@@ -39,4 +39,12 @@ public class WorldUtil {
         }
         return false;
     }
+
+    /** removes block without dropping things */
+    public static void cleanBlock(World world, int x, int y, int z) {
+        boolean remote = world.isRemote;
+        world.isRemote = true;
+        world.setBlockToAir(x, y, z);
+        world.isRemote = remote;
+    }
 }
