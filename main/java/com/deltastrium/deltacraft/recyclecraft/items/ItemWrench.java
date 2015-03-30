@@ -2,6 +2,7 @@ package com.deltastrium.deltacraft.recyclecraft.items;
 
 import com.deltastrium.deltacraft.recyclecraft.blocks.IRecycleCraftBlock;
 import com.deltastrium.deltacraft.recyclecraft.core.RecycleCraft;
+import com.deltastrium.deltacraft.recyclecraft.data.MultiblockData;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import com.deltastrium.deltacraft.recyclecraft.reference.Textures;
 import com.deltastrium.deltacraft.recyclecraft.util.WorldUtil;
@@ -33,6 +34,11 @@ public class ItemWrench extends Item {
             if (block != null && block instanceof IRecycleCraftBlock && ((IRecycleCraftBlock) block).canBePickedUpWithWrench()) {
                 WorldUtil.dropBlock(world, x, y, z);
             }
+        }
+        else {
+            System.out.println("Side: " + side);
+            System.out.println(MultiblockData.compactor.checkPattern(world, x, y, z));
+            return true;
         }
         return false;
     }
