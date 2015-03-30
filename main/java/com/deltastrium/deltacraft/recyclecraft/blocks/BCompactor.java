@@ -1,6 +1,8 @@
 package com.deltastrium.deltacraft.recyclecraft.blocks;
 
 import com.deltastrium.deltacraft.recyclecraft.core.RecycleCraft;
+import com.deltastrium.deltacraft.recyclecraft.data.Multiblock;
+import com.deltastrium.deltacraft.recyclecraft.data.MultiblockData;
 import com.deltastrium.deltacraft.recyclecraft.reference.ModInformation;
 import com.deltastrium.deltacraft.recyclecraft.reference.Textures;
 import com.deltastrium.deltacraft.recyclecraft.tiles.TileIncinerator;
@@ -16,7 +18,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BCompactor extends BMultiblockCore implements IRecycleCraftBlock {
+public class BCompactor extends BMultiblockCore {
 
     // TODO: Someone make this sound good
     public static final String DESCRIPTION = "Makes blocks more compact!";
@@ -49,6 +51,15 @@ public class BCompactor extends BMultiblockCore implements IRecycleCraftBlock {
     }
 
     @Override
+    public IIcon getPartTexture(int index, int side) {
+        System.out.println("Lets ask the compactor!");
+        return bottomTexture;
+    }
+
+    @Override
+    public Multiblock getMultiblock() { return MultiblockData.compactor; }
+
+    @Override
     public TileEntity createNewTileEntity(World world, int meta) {
         return new TileIncinerator();
     }
@@ -65,6 +76,8 @@ public class BCompactor extends BMultiblockCore implements IRecycleCraftBlock {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float xHit, float yHit, float zHit) {
+        if (super.onBlockActivated(world, x, y, z, player, side, xHit, yHit, zHit)) return true;
+
         player.openGui(RecycleCraft.instance, 0, world, x, y, z);
         return true;
     }

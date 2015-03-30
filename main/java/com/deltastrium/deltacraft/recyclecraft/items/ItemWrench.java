@@ -35,11 +35,7 @@ public class ItemWrench extends Item {
                 WorldUtil.dropBlock(world, x, y, z);
             }
         }
-        else {
-            System.out.println("Side: " + side);
-            System.out.println(MultiblockData.compactor.checkPattern(world, x, y, z));
-            return true;
-        }
+
         return false;
     }
 }

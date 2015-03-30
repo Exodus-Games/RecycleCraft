@@ -13,15 +13,17 @@ public class TileMultiblockPart extends TileEntity {
     private Block block;
     private int metadata;
     private Vector3 coreCoords;
+    private int index;
 
     @Override
     public void updateEntity() {
+        /*
         if (coreCoords == null) {
             coreCoords = BlockData.multiblockPart.findCoreWithMeta(worldObj, xCoord, yCoord, zCoord);
             if (coreCoords == null) {
                 loadBlock();
             }
-        }
+        }*/
     }
 
     public void setStoredBlock(Block block, int metadata) {
@@ -35,6 +37,18 @@ public class TileMultiblockPart extends TileEntity {
 
     public void setCore(Vector3 coreCoords) {
         this.coreCoords = coreCoords;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getIndex() {
+        return this.index;
+    }
+
+    public Vector3 getCoreCoords() {
+        return coreCoords;
     }
 
     public boolean loadBlock() {
