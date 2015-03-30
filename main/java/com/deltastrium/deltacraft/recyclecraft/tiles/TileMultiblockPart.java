@@ -4,6 +4,9 @@ import com.deltastrium.deltacraft.recyclecraft.data.BlockData;
 import com.deltastrium.deltacraft.recyclecraft.util.Vector3;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 import javax.vecmath.Vector3d;
@@ -63,6 +66,19 @@ public class TileMultiblockPart extends TileEntity {
     }
 
     @Override
+    public Packet getDescriptionPacket() {
+        super.getDescriptionPacket();
+        NBTTagCompound tag = new NBTTagCompound();
+        this.writeToNBT(tag);
+        return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
+        readFromNBT(packet.func_148857_g());
+    }
+
+    @Override
     public void writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
         compound.setInteger("metadata", metadata);
@@ -74,8 +90,17 @@ public class TileMultiblockPart extends TileEntity {
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
+
+        System.out.println("readFromNBT A");
+
         this.metadata = compound.getInteger("metadata");
         if (compound.hasKey("blockID")) this.block = Block.getBlockById(compound.getInteger("blockID"));
-        if (compound.hasKey("coreCoords")) this.coreCoords = Vector3.createFromNBT(compound.getCompoundTag("coreCoords"));
+        if (compound.hasKey("coreCoords")) {
+            System.out.println("found coreCoordsKey");
+            NBTTagCompound nbt = compound.getCompoundTag("coreCoords");
+            if (nbt != null) System.out.println("found compound");
+            this.coreCoords = Vector3.createFromNBT(compound.getCompoundTag("coreCoords"));
+        }
+
     }
 }
