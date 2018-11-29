@@ -1,6 +1,6 @@
 RecycleCraft
 ================
-RecycleCraft is a mod created for Minecraft by DeltaStrium/DeltaCraft that adds new ways of recycling items and blocks in the world of Minecraft.
+RecycleCraft is a mod created for Minecraft by Exodus-Games that adds new ways of recycling items and blocks in the world of Minecraft.
 
 
 License
